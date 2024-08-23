@@ -4,15 +4,20 @@ export const getRandomInt = (max: number) => {
 
 export const get4RandomInt: (max: number) => number[] = (max: number) => {
   const res = [];
-  for (let i = 0; i <= 4; i++) {
+  for (let i = 0; i <= 3; i++) {
     res.push(Math.floor(Math.random() * max));
   }
   return res;
 };
 
-export const objectKeyValue = (obj: { [key: string]: any }) => {
-  const res = []
-  res.push(Object.keys(obj)[0])
-  res.push(obj[res[0]])
+export const get4KeysValues = (datas: { [key: string]: string }, randoms: number[] ) => {
+  const res: string[][] = []
+  randoms.map((index: number)=>{
+    const key = Object.keys(datas)[index]
+    const array: string[] = []
+    array.push(key)
+    array.push(datas[key])
+    res.push(array)
+  })
   return res;
 }
